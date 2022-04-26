@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Venta</title>
+</head>
+
+<body>
+    <div id="root">
+        <label> Id Venta:
+            <input type="text" name="idVenta" id="idVenta">
+        </label>
+        <label> Fecha de la venta:
+            <input type="date" name="fechaVenta" id="fechaVenta">
+        </label>
+        <label> Nombre del cliente:
+            <input type="text" name="nombreCliente" id="nombreCliente">
+        </label>
+        <label> Producto:
+            <input type="text" name="producto" id="producto">
+        </label>
+        <label> Cantidad:
+            <input type="number" name="cantidad" id="cantidad">
+        </label>
+        <label> Precio Unitario:
+            <input type="text" name="precioUnitario" id="precioUnitario">
+        </label>
+        <label> Precio Total:
+            <input type="text" name="precioTotal" id="precioTotal">
+        </label>
+        <button id="guardar">Guardar</button>
+
+        <div id="tablaVenta">
+            <table id="ventas">
+                <thead>
+                    <tr>
+                        <th>Id Venta</th>
+                        <th>Fecha de la venta</th>
+                        <th>Nombre cliente</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Precio Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <script src="js/client_http.js"></script>
+    <script src="js/venta_main.js"></script>
+    <script src="js/venta_elements.js"></script>
+</body>
+
+</html>
