@@ -9,7 +9,7 @@ const venta_main = (() => {
     const $inputPrecioUnitario = document.getElementById("precioUnitario");
     const $inputPrecioTotal = document.getElementById("precioTotal");
 
-    const fnCallbackClick = (target) => {
+    const fnCallbackClick = async (target) => {
         const idVenta = $inputIdVenta.value;
         const fechaVenta = $inputFechaVenta.value;
         const nombreCliente = $inputNombreCliente.value;
@@ -17,7 +17,8 @@ const venta_main = (() => {
         const cantidad = $inputCantidad.value;
         const precioUnitario = $inputPrecioUnitario.value;
         const precioTotal = $inputPrecioTotal.value;
-        cliente_http.post('http://localhost:8090/api/v1/venta/',
+        console.time();
+        const result = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
             {
                 cantidad: cantidad,
                 fechaVenta: fechaVenta,
@@ -26,8 +27,114 @@ const venta_main = (() => {
                 precioUnitario: precioUnitario,
                 producto: producto
             }
-            , funcionExitoPost, funcionFallo);
-        venta_elements.createRow(idVenta, fechaVenta, nombreCliente, producto, cantidad, precioUnitario, precioTotal);
+        );
+        const result1 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result2 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result3 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result4 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result5 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result6 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result7 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result8 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result9 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+        const result10 = await cliente_http.postAsync('http://localhost:8090/api/v1/venta/',
+            {
+                cantidad: cantidad,
+                fechaVenta: fechaVenta,
+                nombreCliente: nombreCliente,
+                precioTotal: precioTotal,
+                precioUnitario: precioUnitario,
+                producto: producto
+            }
+        );
+
+        const httpCode = result.httpCode;
+        const data = result.data;
+
+        console.log("El HTTP code es", httpCode);
+        console.log("La data es: ", data);
+        console.timeEnd();
     };
 
     $button.addEventListener("click", fnCallbackClick);
@@ -54,17 +161,24 @@ const venta_main = (() => {
     const funcionExitoPost = (response) => {
         const httpResponse = response.httpCode;
         if (httpResponse >= 200 && httpResponse <= 299) {
-
+            const idVenta = $inputIdVenta.value;
+            const fechaVenta = $inputFechaVenta.value;
+            const nombreCliente = $inputNombreCliente.value;
+            const producto = $inputProducto.value;
+            const cantidad = $inputCantidad.value;
+            const precioUnitario = $inputPrecioUnitario.value;
+            const precioTotal = $inputPrecioTotal.value;
+            venta_elements.createRow(idVenta, fechaVenta, nombreCliente, producto, cantidad, precioUnitario, precioTotal);
         } else {
             alert(response);
         }
     }
 
-    const funcionFallo = () => {
-
+    const funcionFallo = (err) => {
+        console.log(err);
     }
 
-    cliente_http.get('http://localhost:8090/api/v1/venta/', funcionExitoGet, funcionFallo);
+    cliente_http.get('http://localhost:8090/api/v1/venta/', funcionExitoPost, funcionFallo);
 
 })();
 
