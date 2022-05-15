@@ -43,7 +43,7 @@ const venta_elements = (() => {
     const _editButton = () => {
         const $buttonEdit = document.createElement("button");
         $buttonEdit.innerText = "Editar";
-
+        $buttonEdit.id = "editar";
         $buttonEdit.addEventListener("click", (event) => {
             const $tdParent = event.target.parentElement;
             const $trParent = $tdParent.parentElement;
@@ -78,7 +78,8 @@ const venta_elements = (() => {
     const _deleteButton = () => {
         const $buttonDelete = document.createElement("button");
         $buttonDelete.innerText = "Eliminar";
-
+        $buttonDelete.id = "eliminar";
+        
         $buttonDelete.addEventListener("click", (event) => {
             const $tdParent = event.target.parentElement;
             const $trParent = $tdParent.parentElement;
