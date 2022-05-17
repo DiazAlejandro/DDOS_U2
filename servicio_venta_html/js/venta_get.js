@@ -17,7 +17,7 @@ const venta_get = (() => {
         console.log(err);
     }
 
-    cliente_http.get('http://localhost:8090/api/v1/venta/', funcionExitoGet, funcionFallo);
+    cliente_http.get('http://localhost:8090/api/v1/venta/', funcionExitoGet, funcionFallo); 
 
 })();
 

@@ -86,12 +86,13 @@ const venta_elements = (() => {
             console.log($trParent.children[0].innerText);
             //const $inputId = document.getElementById("id");
             //$inputId.value = $trParent.children[0].innerText;
+            cliente_http.delete('http://localhost:8090/api/v1/venta/',$trParent.children[0].innerText);
             $tBody.removeChild($trParent);
         });
         return $buttonDelete;
     }
 
     return {
-        createRow: _createRow
+        createRow: _createRow,
     }
 })();

@@ -178,7 +178,7 @@ const venta_main = (() => {
         console.log(err);
     }
 
-    cliente_http.get('http://localhost:8090/api/v1/venta/', funcionExitoPost, funcionFallo);
+    cliente_http.get('http://localhost:8090/api/v1/venta/', funcionExitoGet, funcionFallo);
 
 })();
 
